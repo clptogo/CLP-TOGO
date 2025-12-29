@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adhésion — CLP‑TOGO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><div class="logo-mark" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#184067"/><rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935" opacity="0.9"/></svg></div><div class="brand-text"><span class="org-name">CLP‑TOGO</span></div></a>
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="adhesion.html" class="active">Adhésion</a>
+        <a href="statuts.html">Statuts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Formulaire d'adhésion</h1>
+      <p>Rejoignez CLP‑TOGO : remplissez la fiche ci‑dessous. Les candidatures sont étudiées par le Conseil d'Administration puis soumises à l'Assemblée Générale.</p>
+
+      <form id="adhesionForm" class="adhesion-form" novalidate>
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" required />
+
+        <label for="prenoms">Prénoms</label>
+        <input id="prenoms" name="prenoms" type="text" required />
+
+        <label for="naissance">Date de naissance</label>
+        <input id="naissance" name="naissance" type="date" required />
+
+        <label for="pays">Pays de résidence</label>
+        <input id="pays" name="pays" type="text" required />
+
+        <label for="tel">Numéro de téléphone</label>
+        <input id="tel" name="tel" type="tel" pattern="[\d+\s\-]+" placeholder="+228 700 327 22" required />
+
+        <label for="autres">Autres informations (profession, motivation)</label>
+        <textarea id="autres" name="autres" rows="4"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Soumettre la demande</button>
+          <p id="adhesionMessage" class="form-message" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="info-box">
+        <h3>Procédure</h3>
+        <p>Après examen par le Conseil d'Administration, la candidature est présentée à l'Assemblée Générale. L'inscription au registre est effective après versement des droits d'adhésion.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year-adh"></span> CLP‑TOGO</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year-adh').textContent = new Date().getFullYear();</script>
+</body>
+</html>

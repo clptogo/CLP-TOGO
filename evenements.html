@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Événements — CLP‑TOGO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><div class="logo-mark" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#184067"/><rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935" opacity="0.9"/></svg></div><div class="brand-text"><span class="org-name">CLP‑TOGO</span></div></a>
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="evenements.html" class="active">Événements</a>
+        <a href="adhesion.html">Adhésion</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Événements à venir</h1>
+
+      <div class="events-list">
+        <div class="event">
+          <time datetime="2026-01-15">15 Janvier 2026</time>
+          <h3>Forum jeunesse — Kpalimé</h3>
+          <p>Rencontre des jeunes leaders pour échanger sur l'entrepreneuriat rural et les opportunités locales.</p>
+        </div>
+
+        <div class="event">
+          <time datetime="2026-03-08">08 Mars 2026</time>
+          <h3>Journée de la femme — Atelier leadership</h3>
+          <p>Ateliers et causeries éducatives pour renforcer le leadership féminin et l'accès aux crédits.</p>
+        </div>
+
+        <div class="event">
+          <time datetime="2026-04-22">22 Avril 2026</time>
+          <h3>Campagne environnementale — Reboisement</h3>
+          <p>Journée de plantation et sensibilisation sur la protection des ressources naturelles.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year-ev"></span> CLP‑TOGO</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year-ev').textContent = new Date().getFullYear();</script>
+</body>
+</html>

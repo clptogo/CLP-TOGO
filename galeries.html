@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeries — CLP‑TOGO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><div class="logo-mark" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#184067"/><rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935" opacity="0.9"/></svg></div><div class="brand-text"><span class="org-name">CLP‑TOGO</span></div></a>
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="galeries.html" class="active">Galeries</a>
+        <a href="adhesion.html">Adhésion</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Galeries photos</h1>
+      <p class="muted">Images issues de nos actions : formations, distributions, reboisement et ateliers communautaires.</p>
+
+      <div class="gallery-grid">
+        <figure class="thumb"><img src="images/atelier.jpg" alt="Atelier éducatif"><figcaption>Atelier éducatif</figcaption></figure>
+        <figure class="thumb"><img src="images/maraichage.jpg" alt="Maraîchage"><figcaption>Formation maraîchage</figcaption></figure>
+        <figure class="thumb"><img src="images/reboisement.jpg" alt="Reboisement"><figcaption>Reboisement</figcaption></figure>
+        <figure class="thumb"><img src="images/distribution.jpg" alt="Distribution"><figcaption>Distribution de kits</figcaption></figure>
+      </div>
+      <p class="muted">Remarque : remplacez les images par vos photos réelles dans le dossier /images.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year-gal"></span> CLP‑TOGO</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year-gal').textContent = new Date().getFullYear();</script>
+</body>
+</html>
