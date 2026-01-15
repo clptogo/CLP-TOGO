@@ -1,147 +1,80 @@
-/* ---------------------------
-   CLP-TOGO — style global
-   Palette : bleu foncé #184067, rouge #e53935, vert WhatsApp #25D366
-   --------------------------- */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeries — CLP‑TOGO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-:root {
-  --blue:#184067;
-  --red:#e53935;
-  --accent:#f97316;
-  --muted:#6b7280;
-  --bg:#f5f7fb;
-  --white:#ffffff;
-  --whatsapp:#25D366;
-  --max-width:1100px;
-  --radius:10px;
-  --shadow:0 8px 24px rgba(8,15,30,0.08);
-  --glass:rgba(255,255,255,0.6);
-}
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo-mark">
+          <svg width="36" height="36" viewBox="0 0 44 44">
+            <circle cx="22" cy="22" r="22" fill="#184067"/>
+            <rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="org-name">CLP‑TOGO</span>
+        </div>
+      </a>
 
-* { box-sizing:border-box; }
-html,body { height:100%; }
-body {
-  margin:0;
-  font-family:"Poppins", system-ui, sans-serif;
-  background:var(--bg);
-  color:#0f172a;
-  line-height:1.5;
-}
+      <nav id="mainNav" class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="galeries.html" class="active">Galeries</a>
+        <a href="adhesion.html">Adhésion</a>
+      </nav>
 
-/* Container */
-.container { width:90%; max-width:var(--max-width); margin:0 auto; padding:0 12px; }
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
 
-/* Header */
-.site-header {
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-  position:sticky; top:0; z-index:60;
-  border-bottom:1px solid rgba(24,64,103,0.06);
-}
-.header-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-.brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
-.logo-mark { width:44px; height:44px; flex:0 0 44px; }
-.brand-text { display:flex; flex-direction:column; }
-.org-name { font-weight:700; color:var(--blue); letter-spacing:0.02em; }
-.org-tag { font-size:12px; color:var(--muted); }
+  <main class="section">
+    <div class="container">
+      <h1>Galeries photos & vidéos</h1>
+      <p class="muted">Découvrez nos actions par année : kits scolaires, partage de nourriture, reboisement, formations…</p>
 
-/* Nav */
-.main-nav { display:flex; gap:14px; align-items:center; }
-.main-nav a { color:var(--blue); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; }
-.main-nav a:hover { background:rgba(24,64,103,0.06); }
-.main-nav a.active { background:rgba(24,64,103,0.06); }
-.nav-toggle { display:none; background:none; border:0; font-size:20px; cursor:pointer; }
+      <div class="gallery-controls">
+        <label for="yearFilter">Filtrer par année :</label>
+        <select id="yearFilter">
+          <option value="all">Toutes</option>
+          <option value="2025">2025</option>
+          <option value="2023">2023</option>
+        </select>
+      </div>
 
-/* Section */
-.section { padding:48px 0; }
-.muted { color:var(--muted); font-size:0.95rem; }
+      <div id="gallery" class="gallery-grid"></div>
+    </div>
+  </main>
 
-/* Gallery */
-.gallery-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-  gap:16px;
-  margin-top:24px;
-}
-.thumb {
-  background:#fff;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  text-align:center;
-}
-.thumb img,
-.thumb video {
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:cover;
-  border-radius:6px;
-}
-.thumb figcaption {
-  padding:8px;
-  font-size:13px;
-  color:var(--muted);
-}
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year-gal"></span> CLP‑TOGO</div>
+    </div>
+  </footer>
 
-/* Footer */
-.site-footer {
-  background:var(--blue);
-  color:#fff;
-  padding:18px 0;
-  margin-top:28px;
-  text-align:center;
-}
-.footer-inner {
-  font-size:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+  <!-- Lightbox image -->
+  <div id="lightbox" class="lightbox hidden">
+    <span id="lightboxClose" class="lightbox-close">×</span>
+    <img id="lightboxImg" src="" alt="Image agrandie" />
+  </div>
 
-/* Lightbox image & vidéo (corrigé) */
-.lightbox {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.85);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-.lightbox.hidden { display:none; }
+  <!-- Lightbox vidéo -->
+  <div id="videoLightbox" class="lightbox hidden">
+    <span id="videoClose" class="lightbox-close">×</span>
+    <video id="videoPlayer" controls playsinline preload="metadata">
+      <source id="videoSource" src="" type="video/mp4" />
+      Votre navigateur ne peut pas lire cette vidéo.
+    </video>
+  </div>
 
-#lightbox img {
-  max-width:90%;
-  max-height:80vh;
-  box-shadow:0 0 20px #000;
-  border-radius:6px;
-}
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year-gal").textContent = new Date().getFullYear();
 
-#videoLightbox video {
-  max-width:90%;
-  max-height:80vh;
-  box-shadow:0 0 20px #000;
-  border-radius:6px;
-}
-
-.lightbox-close {
-  position:absolute;
-  top:20px;
-  right:30px;
-  font-size:2rem;
-  color:#fff;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* Responsive */
-@media (max-width:1000px) {
-  .gallery-grid { grid-template-columns:repeat(2, 1fr); }
-}
-
-@media (max-width:700px) {
-  .gallery-grid { grid-template-columns:1fr; }
-  .main-nav { display:none; }
-  .nav-toggle { display:block; }
-  .footer-inner { flex-direction:column; gap:8px; text-align:center; }
-}
+  </script>
+</body>
+</html>
