@@ -106,16 +106,8 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
 /* Gallery */
 .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
 .thumb { background:#fff; border-radius:8px; overflow:hidden; box-shadow:var(--shadow) }
-.thumb img,
-.thumb video {
-  width:100%;
-  max-width:100%;
-  height:auto;
-  max-height:300px;   /* ✅ limite la hauteur */
-  object-fit:cover;
-  display:block;
-  border-radius:6px;
-}
+.thumb img { width:100%; height:160px; object-fit:cover; display:block }
+.thumb video { width:100%; height:160px; object-fit:cover; display:block }
 .thumb figcaption { padding:8px; font-size:13px; color:var(--muted) }
 
 /* Events & news */
@@ -147,16 +139,18 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
 
 #lightbox img {
   max-width:90%;
-  max-height:80vh;
+  max-height:80%;
   box-shadow:0 0 20px #000;
   border-radius:6px;
 }
 
 #videoLightbox video {
   max-width:90%;
-  max-height:80vh;
+  max-height:80%;
   box-shadow:0 0 20px #000;
   border-radius:6px;
 }
 
 .lightbox-close {
+  position:absolute;
+  top:
