@@ -104,19 +104,68 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
 .form-message { margin:0; color:var(--muted) }
 
 /* Gallery */
-.gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
-.thumb { background:#fff; border-radius:8px; overflow:hidden; box-shadow:var(--shadow) }
+.gallery-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes pour les écrans larges */
+  gap: 12px; 
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour les écrans moyens */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les tablettes */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* 1 colonne pour les petits écrans mobiles */
+  }
+}
+
+.thumb {
+  background: #fff; 
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: var(--shadow);
+}
+
 .thumb img,
 .thumb video {
-  width:100%;
-  max-width:100%;
-  height:auto;
-  max-height:300px;   /* ✅ limite la hauteur */
-  object-fit:cover;
-  display:block;
-  border-radius:6px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;   /* Limite la hauteur pour ne pas surcharger l'écran */
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
 }
-.thumb figcaption { padding:8px; font-size:13px; color:var(--muted) }
+
+.thumb figcaption {
+  padding: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Pour ajuster la taille des images de la galerie en version mobile */
+@media (max-width: 768px) {
+  .thumb img,
+  .thumb video {
+    max-height: 200px; /* Réduit la hauteur des images/videos pour les petits écrans */
+  }
+}
+
+@media (max-width: 480px) {
+  .thumb img,
+  .thumb video {
+    max-height: 150px; /* Réduit encore plus pour les très petits écrans */
+  }
+}
 
 /* Events & news */
 .news, .event { background:var(--white); padding:14px; border-radius:10px; box-shadow:var(--shadow); margin-bottom:12px }
@@ -158,5 +207,3 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
   box-shadow:0 0 20px #000;
   border-radius:6px;
 }
-
-.lightbox-close {
