@@ -97,7 +97,7 @@ body {
   align-items:center;
 }
 
-/* Lightbox image & vidéo */
+/* Lightbox image & vidéo (corrigé) */
 .lightbox {
   position:fixed;
   top:0; left:0;
