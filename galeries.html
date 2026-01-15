@@ -6,30 +6,47 @@
   <title>Galeries — CLP‑TOGO</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="site-header small">
+  <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><div class="logo-mark" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#184067"/><rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935" opacity="0.9"/></svg></div><div class="brand-text"><span class="org-name">CLP‑TOGO</span></div></a>
-      <nav class="main-nav">
+      <a class="brand" href="index.html">
+        <div class="logo-mark">
+          <svg width="36" height="36" viewBox="0 0 44 44">
+            <circle cx="22" cy="22" r="22" fill="#184067"/>
+            <rect x="6" y="30" width="32" height="4" rx="2" fill="#e53935"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="org-name">CLP‑TOGO</span>
+        </div>
+      </a>
+
+      <nav id="mainNav" class="main-nav">
         <a href="index.html">Accueil</a>
         <a href="galeries.html" class="active">Galeries</a>
         <a href="adhesion.html">Adhésion</a>
       </nav>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
     </div>
   </header>
 
   <main class="section">
     <div class="container">
-      <h1>Galeries photos</h1>
-      <p class="muted">Images issues de nos actions : formations, distributions, reboisement et ateliers communautaires.</p>
+      <h1>Galeries photos & vidéos</h1>
+      <p class="muted">Découvrez nos actions par année : kits scolaires, partage de nourriture, reboisement, formations…</p>
 
-      <div class="gallery-grid">
-        <figure class="thumb"><img src="images/atelier.jpg" alt="Atelier éducatif"><figcaption>Atelier éducatif</figcaption></figure>
-        <figure class="thumb"><img src="images/maraichage.jpg" alt="Maraîchage"><figcaption>Formation maraîchage</figcaption></figure>
-        <figure class="thumb"><img src="images/reboisement.jpg" alt="Reboisement"><figcaption>Reboisement</figcaption></figure>
-        <figure class="thumb"><img src="images/distribution.jpg" alt="Distribution"><figcaption>Distribution de kits</figcaption></figure>
+      <div class="gallery-controls">
+        <label for="yearFilter">Filtrer par année :</label>
+        <select id="yearFilter">
+          <option value="all">Toutes</option>
+          <option value="2025">2025</option>
+          <option value="2023">2023</option>
+        </select>
       </div>
-      <p class="muted">Remarque : remplacez les images par vos photos réelles dans le dossier /images.</p>
+
+      <div id="gallery" class="gallery-grid"></div>
     </div>
   </main>
 
@@ -39,6 +56,24 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year-gal').textContent = new Date().getFullYear();</script>
+  <!-- Lightbox image -->
+  <div id="lightbox" class="lightbox hidden">
+    <span id="lightboxClose" class="lightbox-close">×</span>
+    <img id="lightboxImg" src="" alt="Image agrandie" />
+  </div>
+
+  <!-- Lightbox vidéo -->
+  <div id="videoLightbox" class="lightbox hidden">
+    <span id="videoClose" class="lightbox-close">×</span>
+    <video id="videoPlayer" controls playsinline preload="metadata">
+      <source id="videoSource" src="" type="video/mp4" />
+      Votre navigateur ne peut pas lire cette vidéo.
+    </video>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year-gal").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
